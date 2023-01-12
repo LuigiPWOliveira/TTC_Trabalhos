@@ -110,7 +110,7 @@ const short OCTAVE = 12;
 
 // FILE PATHS
 
-#define CSOUND_PATH "/usr/local/bin/csound "
+#define CSOUND_PATH "/usr/bin/csound"
 
 // SCORE LOADING MODES:
 const short LOAD_MODE_TIME = 0;

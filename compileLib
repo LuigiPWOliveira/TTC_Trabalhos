@@ -16,7 +16,7 @@ echo "Compilando MuVoice..."
 g++ -g -c ../MuVoice.cpp
 echo "Compilando MuMaterial..."
 g++ -g -c ../MuMaterial.cpp
-echo "Compilando MuPlayer..."
-g++ -g -c ../MuPlayer.cpp
+#echo "Compilando MuPlayer..."
+#g++ -g -c ../MuPlayer.cpp
 #echo "Compilando MuRecorder..."
 #g++ -c ../MuRecorder.cpp
