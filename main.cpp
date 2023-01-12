@@ -2,10 +2,22 @@
 #include "MuMaterial.h"
 
 using namespace std;
+void func1();
+void func2();
+MuMaterial cantus_firmus();
+
 
 int main(){
     MuInit();
 
+    MuMaterial melodia = cantus_firmus();
+    melodia.PlaybackWithCsound("melodia");
+    
+    return 0;
+}
+
+
+void func2(){
     MuMaterial melodia, escala;
     MuNote nota;
     const int tam_escala = 12, tamanho_min = 5;
@@ -16,30 +28,17 @@ int main(){
     nota.SetStart(0.0);
     //nota.SetDur();
     
-
     melodia += nota;
-
     melodia.PlaybackWithCsound("melodia");
-
-    return 0;
 }
 
-
-//mat[0].MajorScale(0.5,true);
-//mat[0].Transpose(12);
-//mat[1].HarmonicMinorScale(0.5);
-//mat[2].PentatonicScale(0.5);
-
-//for(int i = 0; i <= 2; i++){
-    //mat[i].Show();
-    //printf("\n +++++++++++++++++++++++++ \n");
-//}
-    //mat[0].PlaybackWithCsound("mat");
-
-
-/*
+void func1(){
     MuMaterial mat[3], melodia;
     MuNote nota;
+    mat[0].MajorScale(0.5,true);
+    mat[0].Transpose(12);
+    mat[1].HarmonicMinorScale(0.5);
+    mat[2].PentatonicScale(0.5);
 
     nota.SetInstr(1);
     nota.SetStart(0.0);
@@ -65,4 +64,50 @@ int main(){
     } // end while()
 
     mat[2].PlaybackWithCsound("mat");
-*/
+}
+
+//for(int i = 0; i <= 2; i++){
+    //mat[i].Show();
+    //printf("\n +++++++++++++++++++++++++ \n");
+//}
+    //mat[0].PlaybackWithCsound("mat");
+
+MuMaterial cantus_firmus(){
+    MuMaterial melodia, escala;
+    MuNote nota;
+    
+    escala.MajorScale(1);
+    nota.SetInstr(1);
+    nota.SetStart(0.0);
+    nota.SetDur(1);
+    nota.SetAmp(0.7);
+
+    nota.SetPitch(62);
+    melodia += nota;
+    nota.SetPitch(65);
+    melodia += nota;
+    nota.SetPitch(64);
+    melodia += nota;
+    nota.SetPitch(62);
+    melodia += nota;
+    nota.SetPitch(67);
+    melodia += nota;
+    nota.SetPitch(65);
+    melodia += nota;
+    nota.SetPitch(69);
+    melodia += nota;
+    nota.SetPitch(67);
+    melodia += nota;
+    nota.SetPitch(65);
+    melodia += nota;
+    nota.SetPitch(64);
+    melodia += nota;
+    nota.SetPitch(62);
+    melodia += nota;
+
+    melodia.Show();
+    melodia.PlaybackWithCsound("melodia");
+
+    return melodia;
+}
+
