@@ -4,15 +4,20 @@
 using namespace std;
 void func1();
 void func2();
-MuMaterial cantus_firmus();
-
+MuMaterial cantus_firmus;
+MuMaterial cont_pont;
+void contra_ponto();
 
 int main(){
     MuInit();
 
-    MuMaterial melodia = cantus_firmus();
-    melodia.PlaybackWithCsound("melodia");
+    cantus_firmus.LoadScore("cantusfirmus.sco");
+    cantus_firmus.Show();
+    cantus_firmus.PlaybackWithCsound("melodia");
     
+    cantus_firmus.AddVoices(1);
+    cantus_firmus.SetVoice(0,cont_pont,1);
+
     return 0;
 }
 
@@ -72,42 +77,7 @@ void func1(){
 //}
     //mat[0].PlaybackWithCsound("mat");
 
-MuMaterial cantus_firmus(){
-    MuMaterial melodia, escala;
-    MuNote nota;
+void contra_ponto(){
     
-    escala.MajorScale(1);
-    nota.SetInstr(1);
-    nota.SetStart(0.0);
-    nota.SetDur(1);
-    nota.SetAmp(0.7);
-
-    nota.SetPitch(62);
-    melodia += nota;
-    nota.SetPitch(65);
-    melodia += nota;
-    nota.SetPitch(64);
-    melodia += nota;
-    nota.SetPitch(62);
-    melodia += nota;
-    nota.SetPitch(67);
-    melodia += nota;
-    nota.SetPitch(65);
-    melodia += nota;
-    nota.SetPitch(69);
-    melodia += nota;
-    nota.SetPitch(67);
-    melodia += nota;
-    nota.SetPitch(65);
-    melodia += nota;
-    nota.SetPitch(64);
-    melodia += nota;
-    nota.SetPitch(62);
-    melodia += nota;
-
-    melodia.Show();
-    melodia.PlaybackWithCsound("melodia");
-
-    return melodia;
 }
 
